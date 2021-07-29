@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System;
 
 namespace Eatery
 {
@@ -14,6 +15,19 @@ namespace Eatery
         {
             Ingridients = ingridients;
             Name = name;
+        }
+
+        /// <summary>
+        /// Calculate cost price
+        /// </summary>
+        private void CalculateCost()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddIngridientAndProcessing()
+        {
+            CalculateCost();
         }
     }
 }
