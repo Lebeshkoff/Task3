@@ -7,10 +7,13 @@ namespace Eatery
     /// </summary>
     public class Recipe
     {
-        public List<Ingridient> Ingridients { get; private set; }
-        public Recipe(List<Ingridient> ingridients,)
+        public Dictionary<Ingridient,Processing> Ingridients { get; private set; }
+        public string Name { get; private set; }
+
+        public Recipe(Dictionary<Ingridient, Processing> ingridients, string name)
         {
             Ingridients = ingridients;
+            Name = name;
         }
     }
 }

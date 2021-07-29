@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Eatery
 {
-    public class Processing
+    public abstract class Processing
     {
     }
 }

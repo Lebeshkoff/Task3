@@ -8,6 +8,6 @@ namespace Eatery
 {
     public abstract class Ingridient
     {
-        public Processing Processing { get; private set; }
+        public int StorageTemperature { get; private set; }
     }
 }
