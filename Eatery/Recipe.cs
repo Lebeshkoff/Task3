@@ -10,6 +10,8 @@ namespace Eatery
     {
         public Dictionary<Ingridient,Processing> Ingridients { get; private set; }
         public string Name { get; private set; }
+        public int Cost { get; private set; }
+        public int CookingTime { get; private set; }
 
         public Recipe(Dictionary<Ingridient, Processing> ingridients, string name)
         {
@@ -18,16 +20,17 @@ namespace Eatery
         }
 
         /// <summary>
-        /// Calculate cost price
+        /// Calculate cost price and cooking price
         /// </summary>
-        private void CalculateCost()
+        private void CalculateCostAndCookingTime()
         {
+            
             throw new NotImplementedException();
         }
 
         public void AddIngridientAndProcessing()
         {
-            CalculateCost();
+            CalculateCostAndCookingTime();
         }
     }
 }
