@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Eatery.Processings.IProcessings
 {
-    public interface IProcessing<T> where T : Ingridient
+    public interface IProcessing<T>
     {
         public T Cook(); 
     }

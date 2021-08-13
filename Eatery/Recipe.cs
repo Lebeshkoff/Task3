@@ -24,12 +24,27 @@ namespace Eatery
         /// </summary>
         private void CalculateCostAndCookingTime()
         {
-            
-            throw new NotImplementedException();
+            int tempCost = 0;
+            int tempTime = 0;
+            foreach (var ingridient in Ingridients)
+            {
+                tempCost += ingridient.Value.Cost + ingridient.Key.Cost;
+                tempTime += ingridient.Value.Time;
+            }
+            Cost = tempCost;
+            CookingTime = tempTime;
         }
 
-        public void AddIngridientAndProcessing()
+        public void AddIngridientAndProcessing(Ingridient ingridient, Processing processing)
         {
+            foreach (var interfaceType in ingridient.GetType().GetInterfaces())
+            {
+                if(interfaceType == processing.ProcessingType)
+                {
+                    break;
+                }
+            }
+            Ingridients.Add(ingridient, processing);
             CalculateCostAndCookingTime();
         }
     }
