@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Eatery.Processings.IProcessings;
 
 namespace Eatery.Processings
 {
@@ -10,6 +11,7 @@ namespace Eatery.Processings
     {
         public AddProcess(int time, int cost)
         {
+            processingType = typeof(IAddble<>);
             Time = time;
             Cost = cost;
         }

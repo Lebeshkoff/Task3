@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Eatery.Processings.IProcessings;
 
 namespace Eatery.Processings
 {
@@ -10,6 +7,7 @@ namespace Eatery.Processings
     {
         public ShreddingProcess(int time, int cost)
         {
+            processingType = typeof(IShredable<>);
             Time = time;
             Cost = cost;
         }
