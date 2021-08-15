@@ -4,13 +4,15 @@ using Eatery.Processings;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Text.Json;
 
 namespace Eatery
 {
     /// <summary>
     /// Eatery
     /// </summary>
-    public class Eatery
+    public class EateryManager
     {
         /// <summary>
         /// Order history
@@ -47,7 +49,7 @@ namespace Eatery
         /// <param name="name">Name</param>
         /// <param name="orderPower">Production capacity</param>
         /// <param name="chef">Chef</param>
-        public Eatery(string name, int orderPower, Chef chef)
+        public EateryManager(string name, int orderPower, Chef chef)
         {
             Name = name;
             OrderPower = orderPower;
@@ -120,11 +122,33 @@ namespace Eatery
             return Ingridients.FindAll(x => x.StorageTemperature == storageTemperature);
         }
 
-        public void CookOrder()
+        //public void CookOrder()
+        //{
+        //    foreach (var order in OrdersInProcess)
+        //    {
+        //        order.
+        //    }
+        //}
+
+        public async Task SaveEateryToJSONAsync(string path)
         {
-            foreach (var order in OrdersInProcess)
+            using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
             {
-                order
+                await JsonSerializer.SerializeAsync(fs, this);
+            }
+        }
+
+        public void LoadEateryFromJSON()
+        {
+
+        }
+
+        public void CreateOrder(Client<int> client, params Dish[] dishes)
+        {
+            var order = new Order(DateTime.Now, client);
+            foreach (var dish in dishes)
+            {
+                order.AddDish(dish);
             }
         }
     }
