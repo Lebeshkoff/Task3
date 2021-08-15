@@ -7,6 +7,7 @@ using Eatery.Processings.IProcessings;
 
 namespace Eatery.Ingridients
 {
+    [Serializable]
     public class Salt : Ingridient, IAddble<Salt>
     {
         /// <summary>
@@ -19,7 +20,6 @@ namespace Eatery.Ingridients
             StorageTemperature = storageTemperature;
             Cost = cost;
         }
-
         public Salt Cook()
         {
             throw new NotImplementedException();

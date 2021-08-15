@@ -7,6 +7,7 @@ using Eatery.Processings.IProcessings;
 
 namespace Eatery
 {
+    [Serializable]
     /// <summary>
     /// Create ingridient "Tomato"
     /// </summary>
@@ -19,7 +20,6 @@ namespace Eatery
             StorageTemperature = storageTemperature;
             Cost = cost;
         }
-
         public Tomato Cook()
         {
             throw new NotImplementedException();

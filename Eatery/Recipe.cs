@@ -3,6 +3,7 @@ using System;
 
 namespace Eatery
 {
+    [Serializable]
     /// <summary>
     /// Сlass recipe dish
     /// </summary>
@@ -60,7 +61,7 @@ namespace Eatery
         {
             foreach (var interfaceType in ingridient.GetType().GetInterfaces())
             {
-                if(interfaceType == processing.ProcessingType)
+                if(interfaceType.Name == processing.ProcessingType)
                 {
                     Ingridients.Add(ingridient, processing);
                     CalculateCostAndCookingTime();

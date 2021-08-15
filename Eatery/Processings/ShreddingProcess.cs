@@ -3,6 +3,7 @@ using Eatery.Processings.IProcessings;
 
 namespace Eatery.Processings
 {
+    [Serializable]
     /// <summary>
     /// Shred process
     /// </summary>
@@ -10,7 +11,7 @@ namespace Eatery.Processings
     {
         public ShreddingProcess(int time, int cost)
         {
-            ProcessingType = typeof(IShredable<>);
+            ProcessingType = typeof(IShredable<>).Name;
             Time = time;
             Cost = cost;
         }

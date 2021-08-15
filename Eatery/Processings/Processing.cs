@@ -2,6 +2,7 @@
 
 namespace Eatery
 {
+    [Serializable]
     /// <summary>
     /// Summarize process types
     /// </summary>
@@ -10,7 +11,7 @@ namespace Eatery
         /// <summary>
         /// Interfase processing type
         /// </summary>
-        public Type ProcessingType { get; protected set; }
+        public string ProcessingType { get; protected set; }
         /// <summary>
         /// Cost of processing
         /// </summary>

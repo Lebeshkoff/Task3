@@ -7,6 +7,7 @@ using Eatery.Processings.IProcessings;
 
 namespace Eatery.Ingridients
 {
+    [Serializable]
     public class Onion : Ingridient, IShredable<Onion>
     {
         /// <summary>
@@ -19,7 +20,6 @@ namespace Eatery.Ingridients
             StorageTemperature = storageTemperature;
             Cost = cost;
         }
-
         public Onion Cook()
         {
             throw new NotImplementedException();

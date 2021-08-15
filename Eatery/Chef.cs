@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Eatery
 {
+    [Serializable]
     /// <summary>
     /// Chef
     /// </summary>
@@ -23,7 +24,6 @@ namespace Eatery
         {
             Name = name;
         }
-
         /// <summary>
         /// Create and validate new recipe
         /// </summary>

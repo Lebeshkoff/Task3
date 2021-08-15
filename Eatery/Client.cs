@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Eatery
 {
+    [Serializable]
     /// <summary>
     /// Client
     /// </summary>

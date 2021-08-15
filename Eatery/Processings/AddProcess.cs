@@ -7,6 +7,7 @@ using Eatery.Processings.IProcessings;
 
 namespace Eatery.Processings
 {
+    [Serializable]
     /// <summary>
     /// Add process
     /// </summary>
@@ -14,7 +15,7 @@ namespace Eatery.Processings
     {
         public AddProcess(int time, int cost)
         {
-            ProcessingType = typeof(IAddble<>);
+            ProcessingType = typeof(IAddble<>).Name;
             Time = time;
             Cost = cost;
         }

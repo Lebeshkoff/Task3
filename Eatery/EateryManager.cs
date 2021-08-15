@@ -6,9 +6,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Text.Json;
+using System.Runtime.Serialization.Json;
+using System.Runtime.Serialization;
+using Eatery.Ingridients;
 
 namespace Eatery
 {
+    [KnownType(typeof(Tomato))]
+    [KnownType(typeof(Cucumber))]
+    [KnownType(typeof(Salt))]
+    [KnownType(typeof(Onion))]
+    [KnownType(typeof(ShreddingProcess))]
+    [KnownType(typeof(AddProcess))]
+    [Serializable]
     /// <summary>
     /// Eatery
     /// </summary>
@@ -21,11 +31,11 @@ namespace Eatery
         /// <summary>
         /// Current queue 
         /// </summary>
-        private List<Order> ordersQueue = new();
+        public List<Order> ordersQueue = new();
         /// <summary>
         /// Ingridients aviable
         /// </summary>
-        protected List<Ingridient> Ingridients { get; private set; }
+        public List<Ingridient> Ingridients { get; private set; }
         /// <summary>
         /// Cooking orders
         /// </summary>
@@ -51,6 +61,8 @@ namespace Eatery
         /// <param name="chef">Chef</param>
         public EateryManager(string name, int orderPower, Chef chef)
         {
+            Ingridients = new List<Ingridient>();
+            OrdersInProcess = new();
             Name = name;
             OrderPower = orderPower;
             Chef = chef;
@@ -130,17 +142,25 @@ namespace Eatery
         //    }
         //}
 
-        public async Task SaveEateryToJSONAsync(string path)
+        public void SaveEateryToJSONAsync(string path)
         {
-            using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
+            var stream1 = new MemoryStream();
+            DataContractJsonSerializer data = new DataContractJsonSerializer(typeof(EateryManager));
+            data.WriteObject(stream1, this);
+            stream1.Position = 0;
+            var sr = new StreamReader(stream1);
+            using (Stream s = File.Create(path))
             {
-                await JsonSerializer.SerializeAsync(fs, this);
+                stream1.CopyTo(s);
             }
         }
 
-        public void LoadEateryFromJSON()
+        public static EateryManager LoadEateryFromJSON(string path)
         {
-
+            DataContractJsonSerializer data = new DataContractJsonSerializer(typeof(EateryManager));
+            FileStream fileStream = new FileStream(path, FileMode.Open);
+            fileStream.Position = 0;
+            return (EateryManager)data.ReadObject(fileStream);
         }
 
         public void CreateOrder(Client<int> client, params Dish[] dishes)
@@ -150,6 +170,7 @@ namespace Eatery
             {
                 order.AddDish(dish);
             }
+            ordersQueue.Add(order);
         }
     }
 }

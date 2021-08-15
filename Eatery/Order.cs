@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace Eatery
 {
+    [Serializable]
     /// <summary>
     /// Order
     /// </summary>

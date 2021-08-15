@@ -7,6 +7,7 @@ using Eatery.Processings.IProcessings;
 
 namespace Eatery
 {
+    [Serializable]
     /// <summary>
     /// Cucumber
     /// </summary>
