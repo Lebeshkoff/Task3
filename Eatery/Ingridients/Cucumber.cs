@@ -24,6 +24,24 @@ namespace Eatery
             Cost = cost;
         }
 
+        public override bool Equals(object obj)
+        {
+            if(obj == null) return false;
+            if (obj as Cucumber == null) return false;
+            return StorageTemperature == ((Cucumber)obj).StorageTemperature &&
+                Cost == ((Cucumber)obj).Cost;
+        }
+
+        public override int GetHashCode()
+        {
+            return StorageTemperature.GetHashCode() ^ Cost.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+
         public Cucumber Cook()
         {
             throw new NotImplementedException();

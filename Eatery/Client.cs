@@ -22,5 +22,22 @@ namespace Eatery
         {
             Id = id;
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+            if (obj as Client<T> == null) return false;
+            return true;
+        }
+
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }

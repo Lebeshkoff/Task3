@@ -164,5 +164,28 @@ namespace Eatery
             order.GetTotalPrice();
             ordersQueue.Add(order);
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+            if (obj as EateryManager == null) return false;
+            return Name == ((EateryManager)obj).Name &&
+                OrderPower == ((EateryManager)obj).OrderPower &&
+                OrdersInProcess.Equals(((EateryManager)obj).OrdersInProcess) &&
+                ordersHistory.Equals(((EateryManager)obj).ordersHistory) &&
+                ordersQueue.Equals(((EateryManager)obj).ordersQueue);
+        }
+
+        public override int GetHashCode()
+        {
+            return Name.GetHashCode() ^ OrderPower.GetHashCode() ^
+                OrdersInProcess.GetHashCode() ^ ordersHistory.GetHashCode() ^
+                ordersQueue.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }

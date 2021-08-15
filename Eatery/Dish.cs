@@ -28,5 +28,24 @@ namespace Eatery
             Recipe = recipe;
             Cost = recipe.Cost + extraCharge;
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+            if (obj as Dish == null) return false;
+            return Name == ((Dish)obj).Name &&
+                Cost == ((Dish)obj).Cost &&
+                Recipe == ((Dish)obj).Recipe;
+        }
+
+        public override int GetHashCode()
+        {
+            return Name.GetHashCode() ^ Cost.GetHashCode() ^ Recipe.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }

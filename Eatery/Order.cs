@@ -78,5 +78,24 @@ namespace Eatery
             CalculatePrice();
             return totalPrice;
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+            if (obj as Order == null) return false;
+            return Client == ((Order)obj).Client &&
+                Date == ((Order)obj).Date &&
+                dishes.Equals(((Order)obj).dishes);
+        }
+
+        public override int GetHashCode()
+        {
+            return Client.GetHashCode() ^ Date.GetHashCode() ^ dishes.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }

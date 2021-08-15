@@ -20,6 +20,25 @@ namespace Eatery.Ingridients
             StorageTemperature = storageTemperature;
             Cost = cost;
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+            if (obj as Onion == null) return false;
+            return StorageTemperature == ((Onion)obj).StorageTemperature &&
+                Cost == ((Onion)obj).Cost;
+        }
+
+        public override int GetHashCode()
+        {
+            return StorageTemperature.GetHashCode() ^ Cost.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+
         public Onion Cook()
         {
             throw new NotImplementedException();

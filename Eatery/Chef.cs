@@ -39,5 +39,22 @@ namespace Eatery
             }
             return resultRecipe;
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+            if (obj as Chef == null) return false;
+            return Name == ((Chef)obj).Name;
+        }
+
+        public override int GetHashCode()
+        {
+            return Name.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }

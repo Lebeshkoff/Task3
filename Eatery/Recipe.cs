@@ -70,5 +70,24 @@ namespace Eatery
             }
             throw new Exception("Incorrect ingridient with processing type");
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+            if (obj as Recipe == null) return false;
+            return Name == ((Recipe)obj).Name &&
+                Cost == ((Recipe)obj).Cost &&
+                Ingridients.Equals(((Recipe)obj).Ingridients);
+        }
+
+        public override int GetHashCode()
+        {
+            return Name.GetHashCode() ^ Cost.GetHashCode() ^ Ingridients.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }

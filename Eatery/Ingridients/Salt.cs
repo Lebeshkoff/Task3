@@ -20,6 +20,25 @@ namespace Eatery.Ingridients
             StorageTemperature = storageTemperature;
             Cost = cost;
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+            if (obj as Salt == null) return false;
+            return StorageTemperature == ((Salt)obj).StorageTemperature &&
+                Cost == ((Salt)obj).Cost;
+        }
+
+        public override int GetHashCode()
+        {
+            return StorageTemperature.GetHashCode() ^ Cost.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+
         public Salt Cook()
         {
             throw new NotImplementedException();
