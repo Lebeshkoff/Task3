@@ -23,6 +23,7 @@ namespace Eatery
         public DateTime Date { get; private set; }
 
         //public List<Drink> drinks = new();
+
         /// <summary>
         /// Price of order
         /// </summary>
@@ -66,6 +67,7 @@ namespace Eatery
         //{
         //    drinks.Add(drink);
         //}
+
         /// <summary>
         /// Get total price
         /// </summary>

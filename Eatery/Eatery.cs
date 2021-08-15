@@ -119,5 +119,13 @@ namespace Eatery
         {
             return Ingridients.FindAll(x => x.StorageTemperature == storageTemperature);
         }
+
+        public void CookOrder()
+        {
+            foreach (var order in OrdersInProcess)
+            {
+                order
+            }
+        }
     }
 }
