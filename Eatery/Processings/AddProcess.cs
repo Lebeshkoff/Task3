@@ -11,7 +11,7 @@ namespace Eatery.Processings
     {
         public AddProcess(int time, int cost)
         {
-            processingType = typeof(IAddble<>);
+            ProcessingType = typeof(IAddble<>);
             Time = time;
             Cost = cost;
         }

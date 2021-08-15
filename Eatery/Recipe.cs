@@ -41,11 +41,12 @@ namespace Eatery
             {
                 if(interfaceType == processing.ProcessingType)
                 {
-                    break;
+                    Ingridients.Add(ingridient, processing);
+                    CalculateCostAndCookingTime();
+                    return;
                 }
             }
-            Ingridients.Add(ingridient, processing);
-            CalculateCostAndCookingTime();
+            throw new Exception("Incorrect ingridient with processing type");
         }
     }
 }

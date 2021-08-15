@@ -10,10 +10,13 @@ namespace Eatery
     {
         public Recipe Recipe { get; private set; }
         public int Cost { get; private set; }
+        public string Name { get; private set; }
 
-        public Dish(Recipe recipe, int extraCharge)
+        public Dish(string name, Recipe recipe, int extraCharge)
         {
-
+            Name = name;
+            Recipe = recipe;
+            Cost = recipe.Cost + extraCharge;
         }
     }
 }

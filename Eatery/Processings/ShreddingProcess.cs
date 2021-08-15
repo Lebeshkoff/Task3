@@ -7,7 +7,7 @@ namespace Eatery.Processings
     {
         public ShreddingProcess(int time, int cost)
         {
-            processingType = typeof(IShredable<>);
+            ProcessingType = typeof(IShredable<>);
             Time = time;
             Cost = cost;
         }

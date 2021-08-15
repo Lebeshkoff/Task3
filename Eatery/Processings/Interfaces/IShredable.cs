@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Eatery.Processings.IProcessings
 {
-    public interface IShredable<T> where T : Ingridient, IProcessing<T>
+    public interface IShredable<T> : IProcessing<T>
     {
     }
 }
