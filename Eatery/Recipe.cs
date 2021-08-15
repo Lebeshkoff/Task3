@@ -13,9 +13,9 @@ namespace Eatery
         public int Cost { get; private set; }
         public int CookingTime { get; private set; }
 
-        public Recipe(Dictionary<Ingridient, Processing> ingridients, string name)
+        public Recipe(string name)
         {
-            Ingridients = ingridients;
+            Ingridients = new Dictionary<Ingridient, Processing>();
             Name = name;
         }
 
