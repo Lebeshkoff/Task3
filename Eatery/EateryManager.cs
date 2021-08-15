@@ -134,32 +134,23 @@ namespace Eatery
             return Ingridients.FindAll(x => x.StorageTemperature == storageTemperature);
         }
 
-        //public void CookOrder()
-        //{
-        //    foreach (var order in OrdersInProcess)
-        //    {
-        //        order.
-        //    }
-        //}
-
-        public void SaveEateryToJSONAsync(string path)
+        public void SaveEateryToJSON(string path)
         {
-            var stream1 = new MemoryStream();
+            var memoryStream = new MemoryStream();
             DataContractJsonSerializer data = new DataContractJsonSerializer(typeof(EateryManager));
-            data.WriteObject(stream1, this);
-            stream1.Position = 0;
-            var sr = new StreamReader(stream1);
-            using (Stream s = File.Create(path))
-            {
-                stream1.CopyTo(s);
-            }
+            data.WriteObject(memoryStream, this);
+            memoryStream.Position = 0;
+            using Stream s = File.Create(path);
+            memoryStream.CopyTo(s);
         }
 
         public static EateryManager LoadEateryFromJSON(string path)
         {
             DataContractJsonSerializer data = new DataContractJsonSerializer(typeof(EateryManager));
-            FileStream fileStream = new FileStream(path, FileMode.Open);
-            fileStream.Position = 0;
+            var fileStream = new FileStream(path, FileMode.Open)
+            {
+                Position = 0
+            };
             return (EateryManager)data.ReadObject(fileStream);
         }
 
@@ -170,6 +161,7 @@ namespace Eatery
             {
                 order.AddDish(dish);
             }
+            order.GetTotalPrice();
             ordersQueue.Add(order);
         }
     }

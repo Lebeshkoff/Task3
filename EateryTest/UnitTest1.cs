@@ -27,7 +27,7 @@ namespace EateryTest
             var d = new Dish("Salat iz pomidora alya frace", r, 40);
             var cl = new Client<int>(1234);
             e.CreateOrder(cl, d, d, d, d);
-            e.SaveEateryToJSONAsync("json.json");
+            e.SaveEateryToJSON("json.json");
             var k = EateryManager.LoadEateryFromJSON("json.json");
             if(e == k)
             {
