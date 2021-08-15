@@ -6,9 +6,18 @@ using System.Threading.Tasks;
 
 namespace Eatery
 {
+    /// <summary>
+    /// summarize ingridients
+    /// </summary>
     public abstract class Ingridient
     {
+        /// <summary>
+        /// Storage temperature
+        /// </summary>
         public int StorageTemperature { get; protected set; }
+        /// <summary>
+        /// Cost
+        /// </summary>
         public int Cost { get; protected set; }
 
     }

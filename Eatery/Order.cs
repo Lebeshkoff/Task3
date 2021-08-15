@@ -3,16 +3,35 @@ using System.Collections.Generic;
 
 namespace Eatery
 {
+    /// <summary>
+    /// Order
+    /// </summary>
     public class Order
     {
+        /// <summary>
+        /// Client
+        /// </summary>
         public Client<int> Client { get; private set; }
-
+        /// <summary>
+        /// All dishes
+        /// </summary>
         public List<Dish> dishes = new();
 
+        /// <summary>
+        /// Date of order
+        /// </summary>
         public DateTime Date { get; private set; }
 
         //public List<Drink> drinks = new();
+        /// <summary>
+        /// Price of order
+        /// </summary>
         private int totalPrice;
+        /// <summary>
+        /// Craete new order 
+        /// </summary>
+        /// <param name="date">Current date</param>
+        /// <param name="client">Client</param>
         public Order(DateTime date, Client<int> client)
         {
             Client = client;
@@ -20,10 +39,18 @@ namespace Eatery
             totalPrice = 0;
         }
 
+        /// <summary>
+        /// Add dish to order
+        /// </summary>
+        /// <param name="dish">Dish</param>
         public void AddDish(Dish dish)
         {
             dishes.Add(dish);
         }
+
+        /// <summary>
+        /// Calculate total price
+        /// </summary>
         private void CalculatePrice()
         {
             foreach (var dish in dishes)
@@ -39,6 +66,10 @@ namespace Eatery
         //{
         //    drinks.Add(drink);
         //}
+        /// <summary>
+        /// Get total price
+        /// </summary>
+        /// <returns>Price(int)</returns>
         public int GetTotalPrice()
         {
             CalculatePrice();

@@ -7,6 +7,9 @@ using Eatery.Processings.IProcessings;
 
 namespace Eatery.Processings
 {
+    /// <summary>
+    /// Add process
+    /// </summary>
     public class AddProcess : Processing
     {
         public AddProcess(int time, int cost)

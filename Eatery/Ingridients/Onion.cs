@@ -9,6 +9,11 @@ namespace Eatery.Ingridients
 {
     public class Onion : Ingridient, IShredable<Onion>
     {
+        /// <summary>
+        /// Create ingridient "Onion"
+        /// </summary>
+        /// <param name="storageTemperature">Storage Temperature</param>
+        /// <param name="cost">Cost</param>
         public Onion(int storageTemperature, int cost)
         {
             StorageTemperature = storageTemperature;

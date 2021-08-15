@@ -9,6 +9,11 @@ namespace Eatery.Ingridients
 {
     public class Salt : Ingridient, IAddble<Salt>
     {
+        /// <summary>
+        /// Create ingridient "Salt"
+        /// </summary>
+        /// <param name="storageTemperature">Storage Temperature</param>
+        /// <param name="cost">Cost</param>
         public Salt(int storageTemperature, int cost)
         {
             StorageTemperature = storageTemperature;

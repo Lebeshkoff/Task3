@@ -7,6 +7,11 @@ using Eatery.Processings.IProcessings;
 
 namespace Eatery
 {
+    /// <summary>
+    /// Create ingridient "Tomato"
+    /// </summary>
+    /// <param name="storageTemperature">Storage Temperature</param>
+    /// <param name="cost">Cost</param>
     public class Tomato : Ingridient, IShredable<Tomato>
     {
         public Tomato(int storageTemperature, int cost)
